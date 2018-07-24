@@ -1,0 +1,1219 @@
+<?xml version="1.0"?>
+
+      <RenderOnMaster value="true" />
+      <PipeConfig>
+        <Pipe server="0" screen="0" name="0" /> 
+      </PipeConfig>
+
+      <Background r="0.0" g="0.0" b="0.0" /> 
+      <!-- <Far value="350000" /> -->  <!-- OpenGL far plane, has influence on z-buffer fighting -->
+      <MultiThreaded value="CullDrawThreadPerContext" />
+      <CullingMode value="CALVR" /> <!-- CALVR | DEFAULT -->
+      <SyncToVBlank value="on" />
+      <MultiSample value="0" />
+      <Near value="100" />
+      <Far value="100000000" />
+      <UseDepthPartition value="false" /> <!-- default: false; set to true for OSGEarth -->
+      
+<!-- Enable/disable plugins here -->
+      <Plugin>
+    <ClipPlane value="off" />
+	<PanoViewLOD value="on" />
+	<OsgEarth value="off" />
+	<Hpwren value="off" />
+    <ArtifactVis value="on" />
+    <ModelLoader value="on" />
+	<StructView value="off" />
+	<PointsOOC value="on" />
+	<Points value="on" />
+	<PointsWithPans value="on" />
+	<ImageViewer value="on" />
+	<ParticleDreams value="off" />
+    <SpatialViz value="off" />
+  </Plugin>
+
+
+<!-- Plugin configuration -->
+    <Plugin>
+    
+    <ImageViewer>
+        <DefaultPaths value="/data/ImageViewer" />
+        <GlobalOffset x="50000" y="1000" z="0" />
+        <Files>
+          <Map fileLeft="GMRT.jpg" fileRight="GMRT.jpg"/>
+	      <Bee fileLeft="nanoBee2_L.tif" fileRight="nanoBee2_R.tif"/>
+        </Files>
+    </ImageViewer>
+
+	<OsgEarth>
+<!--        <Earth value="/home/calvr/philip/demo.earth" /> -->
+        <Earth value="/home/calvr/philip/fire.earth" />
+    </OsgEarth>
+
+	<CrashDemo>
+	    <!-- not working currently -->
+            <ShaderDir value="/home/calvr/CVRPlugins/calit2/CrashDemo/shaders/" />
+            <Animation basePath="/data/honda/mediumPerColor/" baseName="Frame" infoFile="medium.ani" loadRatio="0.35" frames="30" colors="29" />
+            <Width value="1024" />
+            <Height value="768" />
+            <NumberOfGPUs value="2" />
+        </CrashDemo>
+
+        <Hpwren>
+     		<Sensors value="/home/calvr/philip/CVRPlugins/calit2/Hpwren/config/towers.xml" />
+     		<Font value="/home/calvr/CalVR/resources/arial.ttf" />
+     		<!-- SdgeBak value="/home/calvr/philip/CVRPlugins/calit2/Hpwren/config/sdge-bak.html" / -->
+     		<MesoBak value="/home/calvr/philip/CVRPlugins/calit2/Hpwren/config/meso.json" />
+     		<ShaderPath value="/home/calvr/philip/CVRPlugins/calit2/Hpwren/shaders" />
+     		<ColorTable value="/home/calvr/philip/CVRPlugins/calit2/Points/shaders/colortable.rgb" />
+     		<Portrait value="false" />
+        </Hpwren>
+
+
+	<ArtifactVis>
+	             <TopoFile value="/data/mvincent/ArtifactVis/kyle/3d-model/Ken3dv3.wrl" />
+		     <Database value="/data/mvincent/ArtifactVis/artifactslist.txt" />
+		     <PicFolder value="/data/mvincent/ArtifactVis/kyle/pictures/AllPics/" />
+		     <DCInfoFile value="/data/mvincent/ArtifactVis/kyle/DCCategories.txt" />
+		     <LociFile value="/data/mvincent/ArtifactVis/kyle/AreaMLociDepth.kml" />
+						 
+				 <Offset>
+				   <X value="-3396591.862" />
+				   <Y value="-733458.55" />
+				   <Z value="-49.44" />
+				 </Offset>
+				 <Site>
+				   <Longitude value="35.491239" />
+				   <Latitude value="30.628039" />
+		         </Site>
+		  <Tessellation value=".2" />
+		  <ArtifactPanel x="-200" y="1000" z="100" scale="1.0" />
+	      <SelectionStatsPanel x="500" y="1000" />
+	</ArtifactVis>     
+    
+        <ModelLoader>
+          <ConfigDir value="/data/Models/" />
+          <Files>
+            <Tel_Dor_AnchorA-Underwater path="/data/Levy/tel_dor/Anchor_A_Tel_Dor_Underwater_2017_PLY/Anchor_A_Tel_Dor_Underwater_2017.ply" />
+            <Tel_Dor_Talis_Lab_Full_Section_Model path="/data/Levy/tel_dor/tel_dor_talis_lab_full_section_model/tel_dor_talis_lab_full_section_model.ply" />
+            <NMM17_Ingot_Tin_A_Model path="/data/Levy/tel_dor/national_maritime_museum/nmm17_ingot_tin_a_model/nmm17_ingot_tin_a_model.ply" />            
+            <Timna17_Crocodile_Ridge path="/data/Levy/timna/timna17_crocodile_ridge_model_low/timna17_crocodile_ridge_model_low.ply" />
+            <DI_Building_New path="/data/dlab/030518-UCSDDESIGNANDINNOVATION-3DMODEL.obj" />
+            <DI_Building path="/data/dlab/2017-10-26-UCSD-DIB_HOK-SiteModel.dae" />
+            <Gleevec path="/data/Zoran/Gleevec.wrl" />
+            <HARVONI path="/data/Zoran/HARVONI.wrl" />
+            <PROPOFOL_DSV path="/data/Zoran/PROPOFOL_DSV.wrl" />
+            <Propofol path="/data/Zoran/Propofol.wrl" />
+            <HoyoNegro_Naia-Cranium path="/data/Models/hoyo_negro/crani.osgb" />
+            <HoyoNegro_Naia-Mandible path="/data/Models/hoyo_negro/mandi.ply" />
+            <se_building path="/data/Models/falko/se_building.obj" mask="0" />
+            <JacobsMedicalCenter path="/data/ArchitecturalSchool/JMC_Mockup_VRML/JMC_Mockup_110817_D.WRL" mask="0" showBound="false" />
+            <!-- BIM path="/data/Models/HMC/BIM/BIM.ive" mask="0" showBound="false" / -->
+            <Radiology path="/data/Models/Radio/8_23_Radio.WRL" mask="0" showBound="false" />
+            <Hemoglobin path="/data/PDB/cache/4HHBcart.wrl" mask="0" showBound="false" />
+            <HIV_protease path="/data/PDB/cache/1HVRcart.wrl" mask="0" showBound="false" />
+            <Thermatoga path="/data/PDB/cache/2F8Jcart.wrl" mask="0" showBound="false" />
+            <Cytochrome_c_Oxidase path="/data/PDB/cache/1OCOcart.wrl" mask="0" showBound="false" />
+            <Acetylcholine_Receptor path="/data/PDB/cache/2BG9cart.wrl" mask="0" showBound="false" />
+            <Acetylcholine_Cobratoxin path="/data/PDB/cache/1YI5cart.wrl" mask="0" showBound="false" />
+            <Colon1 path="/data/Volume/larry/SMARR-LARRY.smooth.obj" />
+            <Colon2 path="/data/Volume/larry/SMARR-LARRY-LEE.labels2.surf2.smooth.obj" />
+            <Colon-pre path="/data/Volume/larry/ColonPreSurgeryOct2016.stl" />
+            <Colon-post path="/data/Volume/larry/ColonPostSurgeryJan2017.stl" />
+	  </Files>
+     </ModelLoader>
+        
+      <Points>
+        <ConfigDir value="/home/calvr/CVRPlugins/calit2/Points/" />
+        <PointScale value="1.0" />
+        <ShaderPath value="/home/calvr/CVRPlugins/calit2/Points/shaders/" />
+        <ColorTable value="/home/calvr/CVRPlugins/calit2/Points/shaders/colortable.rgb" />
+        <Files>
+<!--
+            <Diablo path="/data/PointData/diablo_sfm1_dense_med.ply" />
+            <Diablo2 path="/data/PointData/diablo_sfm1and3_dense_med_rescaled.ply" />
+            <Diablo3 path="/data/PointData/dmc_decimated.xyb" />
+            <RIMAC path="/data/PointData/rimac_before_decimated.xyb" />
+            <M711_Mask path="/data/PointData/sfm_mask_1_m711_dense_high_10m.xyb" />
+            <Boca_Iglesias path="/data/PointData/boca_iglesias_dense_lowest_cleaned.ply" />
+            <Tulum path="/data/PointData/tulum_small.xyb" />
+	    <Tikal path="/data/PointData/tikal_10million.xyb" />
+            <Native_Diver path="/data/PointData/ndsmall.xyb"/>
+            <SpiderBowl path="/data/PointData/spiderbowl_noonnight_high_rescaled2.ply" />
+ -->
+            <Florence_Baptistry path="/data/PointData/florence_baptistry.ply" />
+        </Files>
+    </Points>
+     
+	 <StructView>
+             <Layer0File value="/data/baybridge/T1_Block_01A_One_Quarter_wPiles_StructSteel01.WRL" />
+             <Layer1File value="/data/baybridge/T1Block01B_One_Quarter_Struct_Steel.WRL" />
+             <Layer2File value="/data/baybridge/T1Block02_OneQuarter_TopSlabRebar.wrl" />
+             <Layer3File value="/data/baybridge/T1Block03_OneQuarter_BotSlabRebar.wrl" />
+             <Layer4File value="/data/baybridge/T1Block04_One_Quarter_CutOutRebar.wrl" />
+             <Layer5File value="/data/baybridge/T1Block05_OneQuarter_Walls.WRL" />
+             <Layer6File value="/data/baybridge/T1Block06_One_Quarter_FendersRebars.WRL" />
+             <Layer7File value="/data/baybridge/T1Block07_OneQuarter_SkirtRebar.wrl" />
+             <Layer8File value="/data/baybridge/T1Block08_One_Quarter_SkirtABLayout.WRL" />
+             <Layer9File value="/data/baybridge/T1Block11_One_Quarter_Drainage.WRL" />
+             <Layer10File value="/data/baybridge/T1Block13_FullConcrete.WRL" />
+             <Layer11File value="/data/baybridge/Tower-all.wrl" />
+          </StructView>
+
+	<ParticleDreams>
+		<!-- needs to be fixed -->
+     		<DataDir value="/data/ParticleDreams" />
+     		<TargetSystem value="StarCave" />
+     		<DisplaySystem value="StarCave" />
+     		<HandID value="0" />
+     		
+     		 <TargetFrameRate value = "30"/>
+		    <TidleSlideTime value= "10"/>
+		    <N_waterfalls_timeInScene value= "60" />
+		    <Sprial_fountens_timeInScene value= "0" />
+		    <Paint_on_walls_timeInScene value= "60" />
+		    <Painting_skys_timeInScene value= "60" />
+		    <Rain_timeInScene value= "0" />
+	
+         <!--TourCaveCalit2 TourCaveSaudi NexCaveCalit2 StarCave Cave2 Wave Simulator -->
+         <TargetSystem value="Cave2" /> 
+         <!-- TourCaveCalit2 TourCaveSaudi NexCaveCalit2 StarCave Wave Cave2 -->
+	
+        </ParticleDreams>
+
+	<PointsWithPans>
+          <Sets>
+          <Nuzzi file="/data/PointData/Insu1_Combinedd40.xyb" scale="1000" x="-1000" y="-1000" z="500" pointSize = "0.02" moveTime="2.0" fadeTime="2">
+                <!--    <radius  value= "12000"/> -->
+                <!-- selectDistance used to be 9000, changed to 1000 on Jan 17, 2014 for WAVE only (for PS3 joystick)-->
+          <Nuzzi-House-D x="0.0" y="0.0" z="0.0" name="Nuzzi-House-D" rotationOffset="38.0" textureFile="/data/PointData/Nuzzi-thumb/Nuzzi-D.jpg" selectDistance="9000.0"  />
+          <Nuzzi-House-C x="-1.98229" y="1.14319" z="0.0" name="Nuzzi-House-C" rotationOffset="130.0" textureFile="/data/PointData/Nuzzi-thumb/Nuzzi-C.jpg" selectDistance="9000.0"  />
+          <Nuzzi-House-B x="0.313813" y="5.15174" z="0.0" name="Nuzzi-House-B" rotationOffset="145.0" textureFile="/data/PointData/Nuzzi-thumb/Nuzzi-B.jpg" selectDistance="9000.0" />
+          <Nuzzi-House-A x="3.60283" y="4.49394" z="0.0" name="Nuzzi-House-A" rotationOffset="50.0" textureFile="/data/PointData/Nuzzi-thumb/Nuzzi-A.jpg" selectDistance="9000.0"  />
+         </Nuzzi>
+
+
+        <GalleryTest file="/data/PointData/gal12NdrfFilterFilt-r8.xyb" scale="1000" x="0" y="0" z="0">
+        <KGallery1 x="-0.208" y="0.1702" z="-0.25" name="KGallery1" rotationOffset="45.0" />
+        <KGallery2 x="-5.5968" y="-1.84257" z="-0.25" name="KGallery2"/>
+        </GalleryTest>
+        <seaportA1  file="/home/calvr/dan/seaportZup.ply" scale="1000" x="0" y="0" z="0" pointSize = "0.005"> </seaportA1>
+        <barcelonaA1  file="/home/calvr/dan/barcelonaZup.ply" scale="1000" x="0" y="0" z="0" pointSize = "0.005"> </barcelonaA1>
+        <classroomA1  file="/home/calvr/dan/classroomZup.ply" scale="1000" x="0" y="0" z="0" pointSize = "0.005"> </classroomA1>
+        </Sets>
+        
+       </PointsWithPans>
+
+       <PointsOOC>
+       <ConfigDir value="/data/PointsOOC/" />
+       <Files>
+           <Shiqmim value="/data/Levy/shiqmim/shiqmim_100m_aerial_survey_point_cloud_ultra.osga" />
+           <Tel_Dor value="/data/Levy/tel_dor/tel_dor_a7r_aerial_survey_ultra_point_cloud.osga" />
+           <NMM17_Ingot_Copper_Oxhide value="/data/Levy/tel_dor/national_maritime_museum/nmm17_ingot_copper_oxhide_point_cloud.osga" />
+           <Timna_Mines value="/data/Levy/timna/timna_mines_100m.osga" />
+           <Timna_Solomon value="/data/Levy/timna/timna_solomon.osga" />
+           <BalboaPark value="/data/PointsOOC/momcore.osga" />
+           <SanDiego value="/data/PointsOOC/SanDiegoAll.osga" />
+           <Tunnel value="/data/PointsOOC/tunnel.osga" />
+           <Campus value="/data/PointsOOC/Campus.osga" />
+           <Tikal value="/data/PointsOOC/Tikal.osga" />
+           <Balad value="/data/PointsOOC/balad.osga" />
+           <Trefethen value="/data/PointsOOC/trefethen.osga" />
+           
+       </Files>
+    </PointsOOC>
+        
+        <PanoViewLOD>
+	    <ShaderDir value="/home/calvr/CVRPlugins/calit2/PanoViewLOD/glsl/" />
+	    <FloorOffset value="1659.425" /> <!-- todo adjust -->
+	    <ImageSearchPath value="/data/Pans/PansLOD:/data/PansLOD:/data/mvincent/Pans" />
+	    <DefaultConfigDir value="/data/Pans/PansLOD/config:/data/PansLOD/config:/data/mvincent/Pans/config" />
+
+	    <CacheSize value="850" />
+            <SpinScale value="0.1" />
+            <ZoomScale value="-1.0" />
+            <DiskCacheSize value="4096" />
+            <ReadThreads value="1" />
+            <CopyThreads value="6" />
+	    <TargetFPS value="120.0" />
+	    <Pans>
+	    
+	    <Nano_Pano>
+	            <nanoTest/>
+	            <nanoBee1/>
+	            <nanoBee2/>
+	            <nanoSpider1/>
+	            <nanoSpider2/>	          
+	            <nanoChip/>
+	    </Nano_Pano>
+	    
+        <VR_MacroScope>
+                <Colsmoss2/>
+                <ColsmossInsects/>
+                <ColsmossInsects2/>
+                <ColsTidepool/>
+                <OliveBuds/>
+                <SucculentFlowers/>
+                <Tidepool/>
+        </VR_MacroScope>
+	    
+	    <HoyoNegro>
+                <Ich_Balam/>
+                <Ich_Balam_BigTIFF/>
+                <HoyoNegro_Tunnel3/>
+                <Sunsphere/>
+                <Underwater_Set/>
+        </HoyoNegro>
+              <GLIF>
+                <GLIF_16K />
+              </GLIF>
+                  
+              <Italy>
+                <Italy-Set />
+                <Baptistry-Set />
+                <Florence-Baptistery />
+                <Florence-Baptistery2 />
+                <Florence-Baptistery3 />
+                <Florence-Baptistery4 />
+                <Florence-Baptistery5 />
+                <Florence-Duomo3 />
+                <Florence-PalazzoV4 />
+                <Florence-PalazzoV9 />
+                <RoccaImperiale3 />
+                <RoccaImperiale6 />
+                <SantuarioAnglona3 />
+              </Italy>
+
+ 		<Bills_House>
+                    <Bills_Africa_Room />
+                    <Bills_Lerach_Pool />
+                    <Bills_House_Entry />
+                    <Bills_Lerach_Cliff />
+                    <Bills_Upper_Mesamerican_Room />
+                    <Bills_Set />
+                </Bills_House>
+        <Ushaiger>
+            <Ushaiger-1 />
+            <Ushaiger-Courtyard-1 />
+            <Ushaiger-Courtyard-2 />
+            <Ushaiger-Ruin />
+            <Ushaiger-Tower-Center />
+        </Ushaiger>
+		<Australia>
+                    <Australia_Set/>
+
+                    <Bridge_View/>
+                    <Campus_Center/>
+                    <Expo_Center_Fountain/>
+                    <Monash_Courtyard/>
+                    <Monash_IT_Building/>
+                    <New_Horizons_Building/>
+                    <Recital_Center/>
+                    <Shrine_Guards/>
+                    <Shrine_of_Remembrance_Balcony/>
+                    <Shrine_of_Remembrance_Sanctuary/>
+                    <Spotlight/>
+                    <Time_Out_Square/>
+                </Australia>
+
+		<Greece>
+		        <Greece2016-Set />
+		        <Greece_Set />
+		        <Corinth_Temple />
+		        <Delphi_Ampitheater />
+		        <Corinth_Fountain3 />
+		        <Mochlos_Metal />
+		        <Mochlos_Floor />
+		        <Mochlos_Sea />
+		        <Papadio1 />
+		        <Papadio2 />
+        	</Greece>
+        	
+            <Wisconsin>
+                <Tom-Kathy-Wisco />
+                <HDR_1 />
+                <HDR_2 />
+                <Ainsworth-HDR-2 />
+                <Taliesin-HDR-1 />
+                <P-HDR />
+                <P-LDR />
+                <Taliesin-Path />
+                <UPset />
+                <UW-Madison-2 />
+                <Tom-Inside-Low />
+                <Tom-Inside-High />
+                <TomsHouseCaveCam3 />
+                <UCSDCaveCam3 />
+                <wiscoSet />
+             </Wisconsin>
+             <DANs>
+             <sphereTestPat />
+             <insta360 />
+             </DANs>
+
+                <Al-Balad>
+                    <DA>
+                      <Al-Balad-Blue-Car-DA />
+                      <Al-Balad-Nasif-Day-DA />
+                      <Al-Balad-Nasif-Night-DA />
+                      <Al-Balad-Sami-Office-DA />
+                      <Al-Balad-Screen-Bottles-DA />
+                      <Al-Balad-Sun-Door-DA />
+                      <Al-Balad-Tree-Plaza-DA />
+                      <Al-Balad-DA-Set />
+                    </DA>
+                    <Al-Balad-Center />
+                    <Al-Balad-Nasif-House />
+                    <Al-Balad-Nasif-Tree-Plaza />
+                    <Al-Balad-Sami-Office />
+                    <Al-Balad-Set />
+                </Al-Balad>
+		<Jordan>
+                <Umayri_Best_Set/>
+		<Umayri>
+			<Temple_Entry_1/>
+			<Temple_Shrine_Light/>
+			<Random_Field_H/>
+			<Temple_Shrine_Evening_1/>
+			<Temple_Shrine_Evening_2/>
+			<Temple_Entry_Morning_1/>
+			<Temple_Side_Room_1/>
+			<Temple_Side_Room_2/>
+			<Temple_Entry/>
+			<Temple_Entry/>
+			<Side_Room/>
+			<Temple_Side_Room/>
+			<Field_B_Exterior/>
+			<Tent/>
+			<Entry_Stairs_1/>
+			<Entry_Stairs_2/>
+			<View_from_the_West/>
+			<Back_of_Four_Room_House/>
+			<Courtyard_of_Four_Room_House/>
+			<Courtyard_II/>
+			<Roof_I/>
+			<Roof_II/>
+			<Outside_Dolmen/>
+			<Inside_Dolmen/>
+			<Overlooking_K/>
+			<Building_M_Center/>
+			<Building_M_South/>
+			<Building_M_North/>
+			<Building_B_Broadroom/>
+			<Building_B_Standing_Stone/>
+			<Building_C/>
+			<Build_D/>
+			</Umayri>
+		</Jordan>
+
+                <Luxor>
+                    <LuxorKarnakObelisks />
+                    <LuxorMedinetColumnsBlueCeiling />
+                    <LuxorMedinetHabuCourt />
+                    <LuxorMedinetHabuRoyalTreasure1 />
+                    <LuxorMedinetHabuRoyalTreasure2 />
+                    <LuxorMHoutback />
+                    <LuxorMHwall />
+                    <LuxorRamasseum />
+                    <LuxorSet />
+                    <LuxorTempleChapel />
+                    <LuxorTempleEntryNight />
+                    <LuxorTempleNight2 />
+                    <LuxorTempleOutsideColumn />
+                </Luxor>
+                <Madaen-Saleh>
+                    <Madaen-Saleh-Al-Diwan />
+                    <Madaen-Saleh-AlKhuraymat />
+                    <Madaen-Saleh-Rock-Formation />
+                    <Madaen-Saleh-Second-Tomb />
+                    <Madaen-Saleh-Tomb />
+                    <Madaen-Saleh-Set />
+                </Madaen-Saleh>
+<!--
+                <KAUST>
+                 <Beacon_AfterNoon />
+                 <Bldg16Entrance />
+                 <CoffeeBeanBldg16 />
+-->                 
+                 <!--KAUST_DiningHAll /-->
+<!--                 <KAUST_FrontBldg1 />
+                 <Grand-Mosque-1 />
+                 <Grand-Mosque-2 />
+                 <KAUSTCampus />
+                    <KAUSTmuseum1 />
+                    <KAUSTmuseum2 />
+ -->
+                 <!--Library /-->
+<!--
+                 <KAUST_MuseumEntrance />
+                 <StudentCenter />
+                 <YachtClub />
+ -->
+                 <!--KAUST-Set /-->
+<!--
+                </KAUST>
+		<KACST>
+		  <MosqueRoofCorner />
+		  <Rooftop3 />
+		  <RuinDark />
+		  <UshMosqueRoofDownCourtyard />
+		  <Ushaiger-1 />
+		  <Ushaiger-Courtyard-1 />
+		  <Ushaiger-Courtyard-2 />
+		  <Ushaiger-Ruin />
+		  <Ushaiger-Tower-Center />
+		  <Kacst-Set />
+		</KACST>
+ -->
+                <Nuzzi>
+                  <Nuzzi-1 />
+                  <Nuzzi-2 />
+                  <Nuzzi-3 />
+                  <NuzziSet />
+                  <Nuzzi-House-A />
+                  <Nuzzi-House-B />
+                  <Nuzzi-House-C />
+                  <Nuzzi-House-D />
+                  <Nuzzi-House-E />
+                </Nuzzi>
+		<Mars>
+		  <Duck-Bay-L256atc />
+		  <Duck-Bay-L256F />
+		  <Cape-Verde-L257atc />
+		  <Cape-Verde-L257F />
+		  <McMurdo-L257F />
+		  <McMurdo-L456atc />
+
+		  <!--Curiosity1 /-->
+<!--
+		  <Curiosity_Aug />
+		  <Curiosity_Nov />
+		  <Curiosity_Mastcam />
+		  <Curiosity_Navcam />
+ -->
+		  <!--Mars-Set /-->
+		</Mars>
+
+            <GLIF>
+                <GLIFset />
+             </GLIF>
+
+            </Pans>
+	</PanoViewLOD>
+	
+	<StarForge value="off">
+	    <NumRepulsors value="5" />
+        <NumAttractors value="22" />
+        <AssetsPath value="/home/calvr/Siddharth/Assets/StarForge/"/>
+        <ShadersPath value="/home/calvr/Siddharth/CVRPlugins/satre/StarForge/shaders/" />
+        <SkyboxPath value="skyboxes/Belawor/" />
+        <UniversePosition x="0" y="-1000" z="0" />
+    </StarForge>
+    
+      </Plugin>
+
+
+   <MultiPC>
+     <NumSlaves value="1" /> <!-- use 35 for all suncave machines -->   
+     <MasterInterface value="suncave-head" />
+     <CleanupScript value="tentakel 'kill_calvr'" />
+<!--
+     <Startup value="ssh ${USER}@suncave-0 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="0" />
+     <Startup value="ssh ${USER}@suncave-1 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="1" />
+     <Startup value="ssh ${USER}@suncave-2 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="2" />
+     <Startup value="ssh ${USER}@suncave-3 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="3" />
+
+     <Startup value="ssh ${USER}@suncave-4 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="4" />
+     <Startup value="ssh ${USER}@suncave-5 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="5" />
+     <Startup value="ssh ${USER}@suncave-6 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="6" />
+     <Startup value="ssh ${USER}@suncave-7 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="7" />
+     <Startup value="ssh ${USER}@suncave-8 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="8" />
+     <Startup value="ssh ${USER}@suncave-9 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="9" />
+     <Startup value="ssh ${USER}@suncave-10 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="10" /> 
+     <Startup value="ssh ${USER}@suncave-11 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="11" />
+     <Startup value="ssh ${USER}@suncave-12 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="12" />
+     <Startup value="ssh ${USER}@suncave-13 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="13" />
+     <Startup value="ssh ${USER}@suncave-14 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="14" />
+     <Startup value="ssh ${USER}@suncave-15 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="15" />
+     <Startup value="ssh ${USER}@suncave-16 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="16" />
+     <Startup value="ssh ${USER}@suncave-17 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="17" />
+     <Startup value="ssh ${USER}@suncave-18 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="18" />
+     <Startup value="ssh ${USER}@suncave-19 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="19" />
+     <Startup value="ssh ${USER}@suncave-20 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="20" />
+     <Startup value="ssh ${USER}@suncave-21 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="21" />
+     <Startup value="ssh ${USER}@suncave-22 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="22" />
+     <Startup value="ssh ${USER}@suncave-23 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="23" />  
+     <Startup value="ssh ${USER}@suncave-24 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="24" />
+     <Startup value="ssh ${USER}@suncave-25 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="25" />
+     <Startup value="ssh ${USER}@suncave-26 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="26" />
+     <Startup value="ssh ${USER}@suncave-27 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="27" />
+     <Startup value="ssh ${USER}@suncave-28 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="28" />
+     <Startup value="ssh ${USER}@suncave-29 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="29" /> 
+     <Startup value="ssh ${USER}@suncave-31 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="31" />
+     <Startup value="ssh ${USER}@suncave-32 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="32" />
+     <Startup value="ssh ${USER}@suncave-33 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="33" />
+     <Startup value="ssh ${USER}@suncave-34 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="34" />
+-->
+    <Startup value="ssh ${USER}@suncave-30 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="30" />
+    </MultiPC>
+
+    <Input>
+     <TrackingDebug value="off" />
+     <Threaded FPS="60.0" />
+     <TrackingSystem0 value="VRPN">
+       
+       <Offset x="0" y="0" z="0" />
+       <Orientation h="0" p="0" r="0" />
+
+       <NumBodies value="2" />
+       <NumButtons value="8" />
+       <NumValuators value="2" />
+
+       <VRPN>
+	  <Server value="DTrack@localhost" />
+       </VRPN>
+
+       <Body0>
+        <Offset x="50" y="0" z="120" />
+        <Orientation h="-20" p="70" r="-15" />
+       </Body0>
+       <Body1>
+        <Offset x="5" y="0" z="220" />
+        <Orientation h="0" p="-85" r="-5" />
+       </Body1>
+     </TrackingSystem0>
+
+     <TrackingSystem1 value="MOUSE">
+       <NumBodies value="1" />
+       <NumButtons value="3" />
+       <NumValuators value="1" />
+     </TrackingSystem1>
+
+     <NumHeads value="1" />
+     <Head0Address system="0" body="0" />
+
+     <NumHands value="2" />
+     <Hand0>
+       <Address system="0" body="1" />
+       <ButtonMask system0="0xFFFF" system1="0x0" />
+       <NumValuators value="2" />
+       <Valuator0 system="0" number="0" />
+       <Valuator1 system="0" number="1" />
+     </Hand0>
+     <Hand1>
+       <Address system="1" body="0" />
+       <ButtonMask system0="0x00" system1="0xFFFF" />
+       <NumValuators value="1" />
+       <Valuator0 system="1" number="0" />
+     </Hand1>
+   </Input>
+
+   <ContextMenus>
+     <Scale value="1.0" />
+     <MinDistance value="750" />
+     <MaxDistance value="1500" />
+     <DefaultOpenButton value="1" />
+   </ContextMenus>
+
+   <MenuSystem type="BOARDMENU">
+    <BoardMenu>
+     <Position distance="1500" />
+     <Scale value="1.0" />
+     <Buttons select="0" open="1" />
+     <Trigger value="DOUBLECLICK" />
+    </BoardMenu>
+   </MenuSystem>
+
+    <SceneSize value="2000" />
+    <ViewerPosition x="0" y="0" z="0" />
+    <!--ViewerPosition x="0" y="0" z="-1371.8" /-->
+    <!--ViewerPosition x="0" y="0" z="-836.24"/-->
+    <!--ViewerPosition x="0" y="0" z="-174.6" /-->
+    <!--ViewerPosition x="0" y="0" z="503.25" /-->
+    <!--ViewerPosition x="0" y="0" z="1104.91" /-->
+    <ShowAxis value="off" />
+    <Freeze value="on" />
+
+ <LOCAL host="suncave-head" >
+   <NumPipes value="1" />
+   <NumScreens value="1" />
+   <NumWindows value="1" />
+
+   <WindowConfig>
+     <Window width="800" comment="MAIN" pipeIndex="0" height="600" left="0" bottom="0" name="0" decoration="true" cudaDevice="0" />
+   </WindowConfig>
+
+   <ChannelConfig>
+    <Channel left="0"    width="800" bottom="0" height="600" stereoMode="LEFT"  windowIndex="0" name="0" comment="LEFT" />
+    <!--<Channel left="1920" width="1920" bottom="0" height="1080" stereoMode="RIGHT" windowIndex="0" name="1" comment="RIGHT" /> -->
+   </ChannelConfig>
+
+   <ScreenConfig>
+<!-- width and height is physical screen dimensions -->
+    <Screen originX="0" originY="2000" originZ="0" width="3000" height="2160" h="0.0" p="0.0" r="0.0" name="0" comment="LEFT" />
+    <!-- <Screen originX="0" originY="1000" originZ="0" width="2134" height="1200" h="0.0" p="0.0" r="0.0" name="1" comment="RIGHT" /> -->
+    </ScreenConfig>
+
+
+ </LOCAL>
+
+<!-- TODO later for all the slaves nodes -->
+ <LOCAL host="suncave-0,suncave-1,suncave-2,suncave-3,suncave-4,suncave-5,suncave-6,suncave-7,suncave-8,suncave-9,suncave-10,suncave-11,suncave-12,suncave-13,suncave-14,suncave-15,suncave-16,suncave-17,suncave-18,suncave-19,suncave-20,suncave-21,suncave-22,suncave-23,suncave-24,suncave-25,suncave-26,suncave-27,suncave-28,suncave-29,suncave-30,suncave-31,suncave-32,suncave-33,suncave-34">
+ 
+   <Stereo seperation="64.0" />
+
+   <PipeConfig>
+     <Pipe server="0" screen="0" name="0" />
+     <Pipe server="0" screen="1" name="1" />
+   </PipeConfig>
+
+   <WindowConfig>
+      <Window width="3840" comment="MAIN" window="0" pipeIndex="0" height="2160" left="0" bottom="0" name="0" decoration="false" />
+      <Window width="3840" comment="MAIN" window="1" pipeIndex="1" height="2160" left="0" bottom="0" name="1" decoration="false" />    
+   </WindowConfig>
+   
+   <ChannelConfig>
+      <Channel channel="0" left="0"    width="3840" bottom="0" height="2160" stereoMode="VERTICAL_SPLIT"  windowIndex="0" name="0" comment="LEFT" />
+      <Channel channel="1" left="0"    width="3840" bottom="0" height="2160" stereoMode="VERTICAL_SPLIT"  windowIndex="1" name="1" comment="LEFT" />
+      <!--
+      <Channel channel="0" left="0"    width="3840" bottom="0" height="2160" stereoMode="LEFT"  windowIndex="0" name="0" comment="LEFT" />
+      <Channel channel="1" left="0"    width="3840" bottom="0" height="2160" stereoMode="LEFT"  windowIndex="1" name="1" comment="LEFT" />
+      -->
+   </ChannelConfig>
+ </LOCAL>  
+
+<!--
+<LOCAL host="suncave-35">
+ 
+   <Stereo seperation="64.0" />
+
+   <PipeConfig>
+     <Pipe server="0" screen="0" name="0" />
+     <Pipe server="0" screen="1" name="1" />
+     <Pipe server="0" screen="2" name="2" />
+     <Pipe server="0" screen="3" name="3" />
+   </PipeConfig>
+
+   <WindowConfig>
+      <Window width="1920" comment="MAIN" window="0" pipeIndex="0" height="1080" left="0" bottom="0" name="0" decoration="false" />
+      <Window width="1920" comment="MAIN" window="1" pipeIndex="1" height="1080" left="0" bottom="0" name="1" decoration="false" />    
+      <Window width="1920" comment="MAIN" window="2" pipeIndex="2" height="1080" left="0" bottom="0" name="1" decoration="false" />    
+      <Window width="1920" comment="MAIN" window="3" pipeIndex="3" height="1080" left="0" bottom="0" name="1" decoration="false" />    
+   </WindowConfig>
+   
+   <ChannelConfig>
+      <Channel channel="0" left="0"    width="1920" bottom="0" height="1080" stereoMode="LEFT"  windowIndex="0" name="0" comment="LEFT" />
+      <Channel channel="1" left="0"    width="1920" bottom="0" height="1080" stereoMode="RIGHT"  windowIndex="1" name="1" comment="RIGHT" />
+      <Channel channel="2" left="0"    width="1920" bottom="0" height="1080" stereoMode="LEFT"  windowIndex="2" name="2" comment="LEFT" />
+      <Channel channel="3" left="0"    width="1920" bottom="0" height="1080" stereoMode="RIGHT"  windowIndex="3" name="3" comment="RIGHT" />
+   </ChannelConfig>
+ </LOCAL>
+ -->
+ 
+
+
+<!-- set 0 -->
+ <LOCAL host="suncave-0" >
+    
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+   
+   <ScreenConfig>
+    <!-- 0 column 0 row -->
+    <Screen originX="-1223" originY="-706.3" originZ="-1400" width="1210" height="680" h="120.0" p="-45.3" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="-1572.79" originY="0" originZ="-1381.87" width="1210" height="680" h="90.0" p="-42.43" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-1" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+   
+   <ScreenConfig>
+    <!-- 0 column 1 row -->
+    <!--Screen originX="-1547.5" originY="-893.45" originZ="-842.2" width="1210" height="680" h="-120.0" p="-25.4" r="0.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1552.8" originY="-896.5" originZ="-855" width="1210" height="680" h="120.0" p="-25.4" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="-1915.99" originY="0" originZ="-836.24" width="1210" height="680" h="90.0" p="-24.2" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-2" >
+   
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+   
+   <ScreenConfig>
+    <!-- 0 column 2 row  -->
+    <!--Screen originX="-1688.58" originY="-976.9" originZ="-181.7" width="1210" height="680" h="-120.0" p="-5.4" r="0.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1693.9" originY="-978" originZ="-181.7" width="1210" height="680" h="120.0" p="-5.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-2051.41" originY="0" originZ="-174.6" width="1210" height="680" h="-90.0" p="-4.98" r="0.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-2057.5" originY="0" originZ="-174.6" width="1210" height="680" h="90.0" p="-4.98" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-3" >
+   
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 0 column 3 row -->
+    <!--Screen originX="-1625.53" originY="-938.5" originZ="496.0" width="1210" height="680" h="-120.0" p="14.6" r="0.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1631.6" originY="-942" originZ="510.0" width="1210" height="680" h="120.0" p="14.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-1979.43" originY="0" originZ="503.25" width="1210" height="680" h="-90.0" p="14.3" r="0.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-1985.52" originY="0" originZ="503.25" width="1210" height="680" h="90.0" p="14.3" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-4" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+   
+   <ScreenConfig>
+    <!-- 0 column 4 row -->
+    <!--Screen originX="-1367.37" originY="-789.45" originZ="1105" width="1210" height="680" h="-120.0" p="34.6" r="0.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1372.7" originY="-792.55" originZ="1120" width="1210" height="680" h="120.0" p="34.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-1706.53" originY="0" originZ="1104.91" width="1210" height="680" h="-90.0" p="31.67" r="0.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-1712.62" originY="0" originZ="1104.91" width="1210" height="680" h="90.0" p="31.67" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+<!-- set 1 -->
+ <LOCAL host="suncave-5" >
+   
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 1 column 0 row -->
+        <Screen originX="-1223" originY="706.3" originZ="-1420" width="1210" height="680" h="60.0" p="-45.3" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-783.35" originY="1356.8" originZ="-1391.87" width="1210" height="680" h="-30.0" p="-42.43" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-786.4" originY="1362" originZ="-1371.87" width="1210" height="680" h="30.0" p="-42.43" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-6" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+  <ScreenConfig>
+    <!-- 1 column 1 row -->
+    <!--Screen originX="-1547.5" originY="893.45" originZ="-842.2" width="1210" height="680" h="-60.0" p="-25.4" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1552.8" originY="896.5" originZ="-855" width="1210" height="680" h="60.0" p="-25.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-953.45" originY="1651.42" originZ="-836.24" width="1210" height="680" h="-30.0" p="-24.2" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-960" originY="1659.3" originZ="-836.24" width="1210" height="680" h="30.0" p="-24.2" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-7" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 1 column 2 row  -->
+    <!--Screen originX="-1688.58" originY="976.9" originZ="-181.7" width="1210" height="680" h="-60.0" p="-5.4" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1693.9" originY="978" originZ="-181.7" width="1210" height="680" h="60.0" p="-5.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-1025.705" originY="1776.57" originZ="-174.6" width="1210" height="680" h="-30.0" p="-4.98" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-1028.75" originY="1781.8" originZ="-174.6" width="1210" height="680" h="30.0" p="-4.98" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-8" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 1 column 3 row -->
+    <!--Screen originX="-1625.53" originY="938.5" originZ="496.0" width="1210" height="680" h="-60.0" p="14.6" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1631.6" originY="942" originZ="510.0" width="1210" height="680" h="60.0" p="14.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="-989.715" originY="1714.24" originZ="503.25" width="1210" height="680" h="-30.0" p="14.3" r="180.0" name="1" comment="RIGHT" / -->
+    <Screen originX="-992.8" originY="1719.5" originZ="503.25" width="1210" height="680" h="30.0" p="14.3" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-9" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 1 column 4 row -->
+    <!--Screen originX="-1367.37" originY="789.45" originZ="1105" width="1210" height="680" h="-60.0" p="34.6" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="-1372.7" originY="792.55" originZ="1120" width="1210" height="680" h="60.0" p="34.6" r="-179.0" name="0" comment="LEFT" />
+    <!--Screen originX="-853.265" originY="1477.9" originZ="1104.91" width="1210" height="680" h="-30.0" p="31.67" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="-856.31" originY="1483.2" originZ="1104.91" width="1210" height="680" h="30.0" p="31.67" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+
+<!-- set 2 -->
+ <LOCAL host="suncave-10" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 2 column 0 row -->
+    <Screen originX="0" originY="1465" originZ="-1400" width="1210" height="680" h="0.0" p="-45.3" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="783.35" originY="1356.8" originZ="-1391.87" width="1210" height="680" h="30.0" p="-42.43" r="180.0" name="1" comment="RIGHT" / -->
+    <Screen originX="786.4" originY="1362" originZ="-1371.87" width="1210" height="680" h="-30.0" p="-42.43" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-11" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 2 column 1 row -->
+    <Screen originX="0" originY="1821.5" originZ="-855" width="1210" height="680" h="0.0" p="-25.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="953.45" originY="1651.42" originZ="-836.24" width="1210" height="680" h="30.0" p="-24.2" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="960" originY="1659.3" originZ="-836.24" width="1210" height="680" h="-30.0" p="-24.2" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-12" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 2 column 2 row  -->
+    <Screen originX="0" originY="1940" originZ="-181.7" width="1210" height="680" h="0.0" p="-5.4" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="1028.75" originY="1781.8" originZ="-174.6" width="1210" height="680" h="-30.0" p="-4.98" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-13" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 2 column 3 row -->
+    <Screen originX="0" originY="1884.0" originZ="510" width="1210" height="680" h="0.0" p="14.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="989.715" originY="1714.24" originZ="503.25" width="1210" height="680" h="30.0" p="14.3" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="992.8" originY="1719.5" originZ="503.25" width="1210" height="680" h="-30.0" p="14.3" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-14" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 2 column 4 row -->
+    <Screen originX="0" originY="1585.1" originZ="1120" width="1210" height="680" h="0.0" p="34.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="853.265" originY="1477.9" originZ="1104.91" width="1210" height="680" h="30.0" p="31.67" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="856.31" originY="1483.2" originZ="1104.91" width="1210" height="680" h="-30.0" p="31.67" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+<!-- set 3 -->
+ <LOCAL host="suncave-15" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!--Screen originX="1217.98" originY="703.2" originZ="-1407" width="1210" height="680" h="60.0" p="-45.3" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1223" originY="706.3" originZ="-1400" width="1210" height="680" h="-60.0" p="-45.3" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="1566.7" originY="0" originZ="-1391.87" width="1210" height="680" h="90.0" p="-42.43" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1572.79" originY="0" originZ="-1371.87" width="1210" height="680" h="-90.0" p="-42.43" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-16" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 3 column 1 row -->
+    <!--Screen originX="1547.5" originY="893.45" originZ="-842.2" width="1210" height="680" h="60.0" p="-25.4" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1552.8" originY="896.5" originZ="-855" width="1210" height="680" h="-60.0" p="-25.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="1906.9" originY="0" originZ="-836.24" width="1210" height="680" h="90.0" p="-24.2" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1915.99" originY="0" originZ="-836.24" width="1210" height="680" h="-90.0" p="-24.2" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-17" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 3 column 2 row  -->
+    <!--Screen originX="1688.58" originY="976.9" originZ="-181.7" width="1210" height="680" h="60.0" p="-5.4" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1693.9" originY="978" originZ="-181.7" width="1210" height="680" h="-60.0" p="-5.4" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="2051.41" originY="0" originZ="-174.6" width="1210" height="680" h="90.0" p="-4.98" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="2057.5" originY="0" originZ="-174.6" width="1210" height="680" h="-90.0" p="-4.98" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-18" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 3 column 3 row -->
+    <!--Screen originX="1625.53" originY="938.5" originZ="496.0" width="1210" height="680" h="60.0" p="14.6" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1631.6" originY="942" originZ="510.0" width="1210" height="680" h="-60.0" p="14.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="1979.43" originY="0" originZ="503.25" width="1210" height="680" h="90.0" p="14.3" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1985.52" originY="0" originZ="503.25" width="1210" height="680" h="-90.0" p="14.3" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-19" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 3 column 4 row -->
+    <!--Screen originX="1367.37" originY="789.45" originZ="1105" width="1210" height="680" h="60.0" p="34.6" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1372.7" originY="792.55" originZ="1120" width="1210" height="680" h="-60.0" p="34.6" r="180.0" name="0" comment="LEFT" />
+    <!--Screen originX="1706.53" originY="0" originZ="1104.91" width="1210" height="680" h="90.0" p="31.67" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1712.62" originY="0" originZ="1104.91" width="1210" height="680" h="-90.0" p="31.67" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+<!-- set 4 -->
+ <LOCAL host="suncave-20" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 8 0-1 column 0 row -->
+    <!--Screen originX="1217.98" originY="-703.2" originZ="-1407" width="1210" height="680" h="120.0" p="-45.3" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1223" originY="-706.3" originZ="-1400" width="1210" height="680" h="-120.0" p="-45.3" r="180.0" name="0" comment="BOTTOM" />
+    <!--Screen originX="1547.5" originY="-893.45" originZ="-842.4" width="1210" height="680" h="120.0" p="-25.4" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1552.8" originY="-896.5" originZ="-855" width="1210" height="680" h="-120.0" p="-25.4" r="180.0" name="1" comment="TOP" />
+   </ScreenConfig>
+ </LOCAL>
+
+<LOCAL host="suncave-21" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <!-- 8 2-3 column 0 row  -->
+    <!--Screen originX="1688.58" originY="-974.9" originZ="-181.7" width="1210" height="680" h="120.0" p="-5.4" r="180.0" name="0" comment="LEFT" /-->
+    <Screen originX="1693.9" originY="-978" originZ="-181.7" width="1210" height="680" h="-120.0" p="-5.4" r="180.0" name="0" comment="BOTTOM" />
+    <!--Screen originX="1625.53" originY="-938.5" originZ="496.0" width="1210" height="680" h="120.0" p="14.6" r="180.0" name="1" comment="RIGHT" /-->
+    <Screen originX="1631.6" originY="-942" originZ="510.0" width="1210" height="680" h="-120.0" p="14.6" r="180.0" name="1" comment="TOP" />
+   </ScreenConfig>
+ </LOCAL>
+
+<LOCAL host="suncave-22" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="2225" originY="-2591" originZ="-1250" width="1210" height="680" h="-145.9" p="-20" r="180.0" name="0" comment="BOTTOM" />
+   <Screen originX="2335" originY="-2751" originZ="-579" width="1210" height="680" h="-145.9" p="-9" r="180.0" name="1" comment="TOP" />
+   </ScreenConfig>
+ </LOCAL>
+
+ <LOCAL host="suncave-23" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="2350" originY="-2771" originZ="102" width="1210" height="680" h="-145.9" p="1" r="180.0" name="0" comment="BOTTOM" />
+   <Screen originX="2290" originY="-2681" originZ="790" width="1210" height="680" h="-145.9" p="12.3" r="180.0" name="1" comment="TOP" />
+   </ScreenConfig>
+ </LOCAL>
+
+<LOCAL host="suncave-24" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <Screen originX="1373" originY="-793" originZ="1120" width="1210" height="680" h="-120" p="34.6" r="-180.0" name="0" comment="LEFT" />
+    <Screen originX="2170" originY="-2506" originZ="1440" width="1210" height="680" h="-145.9" p="23" r="-180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+
+ <LOCAL host="suncave-25" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+ <ScreenConfig>
+    <Screen originX="1200" originY="-2974" originZ="-1260" width="1210" height="680" h="190" p="-20" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="0" originY="-3000" originZ="-1260" width="1210" height="680" h="-180" p="-20" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+<LOCAL host="suncave-26" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="1233" originY="-3154" originZ="-589" width="1210" height="680" h="190" p="-9" r="180.0" name="0" comment="LEFT" />   
+   <Screen originX="0" originY="-3165" originZ="-589" width="1210" height="680" h="180" p="-9" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+
+<LOCAL host="suncave-27" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="1230" originY="-3174" originZ="102" width="1210" height="680" h="190" p="1" r="180.0" name="0" comment="LEFT" />
+   <Screen originX="0" originY="-3165" originZ="102" width="1210" height="680" h="180" p="1" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+ 
+<LOCAL host="suncave-28" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="1205" originY="-3070" originZ="790" width="1210" height="680" h="190" p="12" r="180.0" name="0" comment="LEFT" />
+   <Screen originX="0" originY="-3065" originZ="790" width="1210" height="680" h="180" p="12" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+ 
+<LOCAL host="suncave-29" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <Screen originX="1170" originY="-2868" originZ="1450" width="1210" height="680" h="190" p="23" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="0" originY="-2830" originZ="1440" width="1210" height="680" h="-180" p="23" r="180.0" name="1" comment="LEFT" />
+   </ScreenConfig>
+ </LOCAL>
+ <LOCAL host="suncave-30" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <Screen originX="-1146" originY="-2820" originZ="-1265" width="1210" height="680" h="162.8" p="-20" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="-2190" originY="-2407" originZ="-1265" width="1210" height="680" h="145.9" p="-20" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+<LOCAL host="suncave-31" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="-1190" originY="-2961" originZ="-589" width="1210" height="680" h="162.8" p="-9" r="180.0" name="0" comment="LEFT" />
+   <Screen originX="-2250" originY="-2507" originZ="-589" width="1210" height="680" h="145.9" p="-9" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+
+<LOCAL host="suncave-32" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="-1220" originY="-3060" originZ="102" width="1210" height="680" h="162.8" p="1" r="180.0" name="0" comment="LEFT" />
+   <Screen originX="-2320" originY="-2607" originZ="110" width="1210" height="680" h="145.9" p="1" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+ 
+<LOCAL host="suncave-33" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+   <Screen originX="-1190" originY="-2961" originZ="790" width="1210" height="680" h="162.8" p="12.3" r="180.0" name="0" comment="LEFT" />
+   <Screen originX="-2250" originY="-2507" originZ="790" width="1210" height="680" h="145.9" p="12.3" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+ 
+<LOCAL host="suncave-34" >
+
+   <NumPipes value="2" />
+   <NumScreens value="2" />
+   <NumWindows value="2" />
+
+   <ScreenConfig>
+    <Screen originX="-1135" originY="-2775" originZ="1455" width="1210" height="680" h="162.8" p="23.1" r="180.0" name="0" comment="LEFT" />
+    <Screen originX="-2120" originY="-2307" originZ="1430" width="1210" height="680" h="145.9" p="23.1" r="180.0" name="1" comment="RIGHT" />
+   </ScreenConfig>
+ </LOCAL>
+ 
+ 
+ <!-- floor machine TODO -->
+ <!--
+ 
+ <LOCAL host="suncave-35" >
+
+   <NumPipes value="4" />
+   <NumScreens value="4" />
+   <NumWindows value="4" />
+
+   <ScreenConfig>
+    <Screen originX="0" originY="-766" originZ="-1759" width="2723" height="1532" h="0.0" p="-90.0" r="0.0" name="0" screen="0" comment="LEFT_TOP" />
+    <Screen originX="0" originY="-392" originZ="-1759" width="2723" height="1532" h="0.0" p="-90.0" r="0.0" name="1" screen="1" comment="RIGHT_TOP" />
+    
+    <Screen originX="0" originY="766" originZ="-1759" width="2723" height="1532" h="0.0" p="-90.0" r="0.0" name="2" screen="2" comment="LEFT_BOTTOM" />
+    <Screen originX="0" originY="666" originZ="-1759" width="2723" height="1532" h="0.0" p="-90.0" r="0.0" name="3" screen="3" comment="RIGHT_BOTTOM" />
+   </ScreenConfig>
+ </LOCAL>
+ -->
+ 

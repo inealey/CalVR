@@ -46,6 +46,7 @@ yum install -y tk-devel && \
 yum install -y recordmydesktop && \
 yum install -y mxml-devel-2.9-1.el7.x86_64 && \
 yum install -y glibc-static && \
+yum install -y SDL-devel && \
 yum reinstall -y libX11-devel-1.6.5-1.el7.x86_64 && \
 yum reinstall -y xorg-x11-proto-devel-7.7-20.el7.noarch
 
@@ -113,7 +114,9 @@ WORKDIR /root/
 RUN git clone https://github.com/CalVR/calvr_plugins.git
 WORKDIR /root/calvr_plugins/
 RUN sed -i '42i INCLUDE_DIRECTORIES (SYSTEM /usr/lib/x86_64-redhat-linux6E/include/)' CMakeLists.txt && \
-cmake -D CALVR_DIR=/root/calvr -D CALVR_INCLUDE_DIR=/root/calvr/include -D PLUGIN_MODELLOADER=ON . && \ 
+cmake -D CALVR_DIR=/root/calvr -D CALVR_INCLUDE_DIR=/root/calvr/include -D PLUGIN_MODELLOADER=ON \
+-D PLUGIN_ARTIFACTVIS=ON -D PLUGIN_POINTS=ON -D PLUGIN_PANOVIEWLOD=ON -D PLUGIN_POINTSOOC=ON \
+-D PLUGIN_POINTSWITHPANS=ON -D PLUGIN_IMAGEVIEWER=ON . && \ 
 make -j20 && \
 make install
 

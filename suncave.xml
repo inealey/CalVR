@@ -517,12 +517,20 @@
      <NumSlaves value="1" /> <!-- use 35 for all suncave machines -->   
      <MasterInterface value="suncave-head" />
      <CleanupScript value="tentakel 'kill_calvr'" />
+     <Startup value="echo CalVR" name="11" /> <!-- TODO: this is a HACK to trick the comm controller into 
+						   thinking it launched the nodes. Because this is commented out here,
+					           each slave node (container) will need to be running CalVR, configured as a worker node.
+
+	Example cmd line for CalVR launch inside worker node container (replace '=' with '-'):
+
+	# ./CalVR ==host=name [name] ==node=number [number] ==master=interface [master host name] ==master=port [port] 
+--> 
+
 <!--
      <Startup value="ssh ${USER}@suncave-0 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="0" />
      <Startup value="ssh ${USER}@suncave-1 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="1" />
      <Startup value="ssh ${USER}@suncave-2 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="2" />
      <Startup value="ssh ${USER}@suncave-3 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="3" />
-
      <Startup value="ssh ${USER}@suncave-4 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="4" />
      <Startup value="ssh ${USER}@suncave-5 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="5" />
      <Startup value="ssh ${USER}@suncave-6 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="6" />
@@ -553,8 +561,8 @@
      <Startup value="ssh ${USER}@suncave-32 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="32" />
      <Startup value="ssh ${USER}@suncave-33 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="33" />
      <Startup value="ssh ${USER}@suncave-34 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="34" />
+     <Startup value="ssh ${USER}@suncave-30 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="30" />
 -->
-    <Startup value="ssh ${USER}@suncave-30 if \( test -d `pwd` \) then cd `pwd` \;CalVR \>\&amp; /tmp/errors.log\; fi" name="30" />
     </MultiPC>
 
     <Input>
